@@ -7,52 +7,232 @@
   <meta name="Generator" content="Cocoa HTML Writer">
   <meta name="CocoaVersion" content="2022.6">
   <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 20.0px; font: 12.0px '.AppleSystemUIFontMonospaced'; color: #1b1f23; -webkit-text-stroke: #1b1f23}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: right; line-height: 20.0px; font: 12.0px '.AppleSystemUIFontMonospaced'; color: #1b1f23; -webkit-text-stroke: #1b1f23; min-height: 15.0px}
+    span.s1 {font-kerning: none}
+    table.t1 {background-color: #ffffff; border-collapse: collapse}
+    td.td1 {width: 131.3px; padding: 0.0px 10.0px 0.0px 10.0px}
+    td.td2 {width: 131.3px; min-width: 50.0px; padding: 0.0px 10.0px 0.0px 10.0px}
+    td.td3 {width: 650.5px; padding: 0.0px 10.0px 0.0px 10.0px}
   </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="utf-8" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;crisp-game-lib&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta</p>
-<p class="p1"><span class="Apple-converted-space">      </span>name="viewport"</p>
-<p class="p1"><span class="Apple-converted-space">      </span>content="width=device-width, height=device-height,</p>
-<p class="p1"><span class="Apple-converted-space">    </span>user-scalable=no, initial-scale=1, maximum-scale=1"</p>
-<p class="p1"><span class="Apple-converted-space">    </span>/&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://unpkg.com/sounds-some-sounds@1.0.5/build/index.js"&gt;&lt;/script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://unpkg.com/gif-capture-canvas@1.1.0/build/index.js"&gt;&lt;/script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://unpkg.com/terser@4.6.11/dist/bundle.min.js"&gt;&lt;/script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://unpkg.com/pixi.js@5.3.0/dist/pixi.min.js"&gt;&lt;/script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://unpkg.com/pixi-filters@3.1.1/dist/pixi-filters.js"&gt;&lt;/script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>var module = {};</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://unpkg.com/lodash.clonedeep@4.5.0/index.js"&gt;&lt;/script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://abagames.github.io/crisp-game-lib/bundle.js"&gt;&lt;/script&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;script&gt;</p>
-<p class="p1">title = "";</p>
-<p class="p2"><br></p>
-<p class="p1">description = `</p>
-<p class="p1">`;</p>
-<p class="p2"><br></p>
-<p class="p1">characters = [];</p>
-<p class="p2"><br></p>
-<p class="p1">options = {};</p>
-<p class="p2"><br></p>
-<p class="p1">function update() {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if (!ticks) {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">addEventListener("load", onLoad);</p>
-<p class="p1">&lt;/script&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;body style="background: #ddd"&gt;&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+<table cellspacing="0" cellpadding="0" class="t1">
+  <tbody>
+    <tr>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td2">
+        <p class="p2"><span class="s1"></span><br></p>
+      </td>
+      <td valign="top" class="td3">
+        <p class="p1"><span class="s1">&lt;html&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td2">
+        <p class="p2"><span class="s1"></span><br></p>
+      </td>
+      <td valign="top" class="td3">
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;head&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td2">
+        <p class="p2"><span class="s1"></span><br></p>
+      </td>
+      <td valign="top" class="td3">
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta charset="utf-8" /&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td2">
+        <p class="p2"><span class="s1"></span><br></p>
+      </td>
+      <td valign="top" class="td3">
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;crisp-game-lib&lt;/title&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td2">
+        <p class="p2"><span class="s1"></span><br></p>
+      </td>
+      <td valign="top" class="td3">
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td2">
+        <p class="p2"><span class="s1"></span><br></p>
+      </td>
+      <td valign="top" class="td3">
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>name="viewport"</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td2">
+        <p class="p2"><span class="s1"></span><br></p>
+      </td>
+      <td valign="top" class="td3">
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>content="width=device-width, height=device-height,</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td2">
+        <p class="p2"><span class="s1"></span><br></p>
+      </td>
+      <td valign="top" class="td3">
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>user-scalable=no, initial-scale=1, maximum-scale=1"</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td2">
+        <p class="p2"><span class="s1"></span><br></p>
+      </td>
+      <td valign="top" class="td3">
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>/&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td2">
+        <p class="p2"><span class="s1"></span><br></p>
+      </td>
+      <td valign="top" class="td3">
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script src="https://unpkg.com/sounds-some-sounds@1.0.5/build/index.js"&gt;&lt;/script&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td2">
+        <p class="p2"><span class="s1"></span><br></p>
+      </td>
+      <td valign="top" class="td3">
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script src="https://unpkg.com/gif-capture-canvas@1.1.0/build/index.js"&gt;&lt;/script&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td2">
+        <p class="p2"><span class="s1"></span><br></p>
+      </td>
+      <td valign="top" class="td3">
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script src="https://unpkg.com/terser@4.6.11/dist/bundle.min.js"&gt;&lt;/script&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td2">
+        <p class="p2"><span class="s1"></span><br></p>
+      </td>
+      <td valign="top" class="td3">
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script src="https://unpkg.com/pixi.js@5.3.0/dist/pixi.min.js"&gt;&lt;/script&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td2">
+        <p class="p2"><span class="s1"></span><br></p>
+      </td>
+      <td valign="top" class="td3">
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script src="https://unpkg.com/pixi-filters@3.1.1/dist/pixi-filters.js"&gt;&lt;/script&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td2">
+        <p class="p2"><span class="s1"></span><br></p>
+      </td>
+      <td valign="top" class="td3">
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td2">
+        <p class="p2"><span class="s1"></span><br></p>
+      </td>
+      <td valign="top" class="td3">
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>var module = {};</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td2">
+        <p class="p2"><span class="s1"></span><br></p>
+      </td>
+      <td valign="top" class="td3">
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td2">
+        <p class="p2"><span class="s1"></span><br></p>
+      </td>
+      <td valign="top" class="td3">
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script src="https://unpkg.com/lodash.clonedeep@4.5.0/index.js"&gt;&lt;/script&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td2">
+        <p class="p2"><span class="s1"></span><br></p>
+      </td>
+      <td valign="top" class="td3">
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script src="bundle.js"&gt;&lt;/script&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td2">
+        <p class="p2"><span class="s1"></span><br></p>
+      </td>
+      <td valign="top" class="td3">
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td2">
+        <p class="p2"><span class="s1"></span><br></p>
+      </td>
+      <td valign="top" class="td3">
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>addGameScript();</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td2">
+        <p class="p2"><span class="s1"></span><br></p>
+      </td>
+      <td valign="top" class="td3">
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>window.addEventListener("load", onLoad);</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td2">
+        <p class="p2"><span class="s1"></span><br></p>
+      </td>
+      <td valign="top" class="td3">
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td2">
+        <p class="p2"><span class="s1"></span><br></p>
+      </td>
+      <td valign="top" class="td3">
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/head&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td2">
+        <p class="p2"><span class="s1"></span><br></p>
+      </td>
+      <td valign="top" class="td3">
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;body style="background: #ddd"&gt;&lt;/body&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td2">
+        <p class="p2"><span class="s1"></span><br></p>
+      </td>
+      <td valign="top" class="td3">
+        <p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
 </body>
 </html>
