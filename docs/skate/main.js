@@ -34,6 +34,24 @@ bbbbbb
   bb
 `,
 
+`
+
+ llrll
+ lrrrl
+  lrl
+ lrrrl
+ llrll
+`,
+
+`
+lllll
+lllll
+lllll
+lllll
+lllll
+lllll
+`
+
 ];
 
 const G = {
@@ -52,7 +70,7 @@ options = {
   viewSize: {x: G.WIDTH, y: G.HEIGHT}
 };
 
-/** @typedef {{pos: Vector, cooldown: number, inAir: boolean}} Player */
+/** @typedef {{pos: Vector, cooldown: number, inAir: boolean, airTime: number}} Player */
 /** @type { Player } */
 let player;
 
@@ -78,7 +96,8 @@ function update() {
     player = {
       pos: vec(G.WIDTH * 0.5, G.HEIGHT * 0.5 + 20),
       cooldown: G.RAMP_COOLDOWN,
-      inAir: false
+      inAir: false,
+      airTime: G.JUMP_HEIGHT * 10
     };
     playerSprite = {
       pos: vec(player.pos.x, player.pos.y + 6)
@@ -142,13 +161,18 @@ function update() {
     });
   });
 
-  if(input.isPressed) {
+  if(input.isJustPressed) {
     player.inAir = true;
   }
-
-  if(input.isJustReleased) {
-    player.inAir = false;
+  if(player.inAir) {
+    player.airTime--;
   }
+
+  if(player.airTime <= 0) {
+    player.inAir = false;
+    player.airTime = G.JUMP_HEIGHT * 10;
+  }
+
 
   // Drawing double sprites
   player.pos = vec(input.pos.x, player.pos.y);
@@ -156,11 +180,15 @@ function update() {
   player.pos.clamp(0, G.WIDTH, 0, G.HEIGHT);
   playerSprite.pos.clamp(0, G.WIDTH, 0, G.HEIGHT);
   color('black');
-  char("a", player.pos);
-  char("b", playerSprite.pos);
+  if(!player.inAir) {
+    if(char("a", player.pos).isColliding.rect.black)
+      end("Try again!");
+    char("b", playerSprite.pos);}
+  else {(char("d", player.pos)); playerSprite.pos.y += 2; char("e", playerSprite.pos);}
 
-  if(char("a", player.pos).isColliding.rect.black && !player.inAir)
-    end("Try again!");
+
+  // if(char("a", player.pos).isColliding.rect.black)
+  //   end("Try again!");
 
 
 }
