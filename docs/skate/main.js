@@ -1,15 +1,26 @@
 title = `Skate 4`;
 
 description = `
+    [HOLD] to
+  perform tricks!
 `;
 
 characters = [
-// SKATEBOARD
+// SKATEBOARD TOP
 `
 llrrll
 lrrrrl
+ rLLr 
  rrrr 
  rrrr 
+ rrrr
+`,
+
+`
+ rrrr 
+ rrrr 
+ rrrr 
+ rLLr 
 lrrrrl
 llrrll
 `
@@ -33,13 +44,27 @@ options = {
 /** @type { Player } */
 let player;
 
+/** @typedef {{pos: Vector}} PlayerSprite */
+/** @type { PlayerSprite } */
+let playerSprite;
+
 function update() {
   if (!ticks) {
     player = {
-      pos: vec(G.WIDTH / 2, G.HEIGHT / 2),
+      pos: vec(G.WIDTH * 0.5, G.HEIGHT * 0.5 + 20),
     };
+    playerSprite = {
+      pos: vec(player.pos.x, player.pos.y + 6)
+    }
   }
 
+  // Drawing double sprites
+  player.pos = vec(input.pos.x, player.pos.y);
+  playerSprite.pos = vec(input.pos.x, player.pos.y + 6);
+  player.pos.clamp(0, G.WIDTH, 0, G.HEIGHT);
+  playerSprite.pos.clamp(0, G.WIDTH, 0, G.HEIGHT);
   color('black');
-  char("a", player.pos)
+  char("a", player.pos);
+  char("b", playerSprite.pos);
 }
+
