@@ -186,7 +186,7 @@ function update() {
 
   if(Pit.cooldown < 0)
   {
-    color("black");
+    color("cyan");
     rect(Pit.pos, G.WIDTH, Pit.size);
     Pit.pos.y += G.SPEED;
 
@@ -199,6 +199,7 @@ function update() {
 
   Ramps.forEach(r => {
     r.pos.y += G.SPEED;
+    color("purple");
     char("c", r.pos);
     // if(ramp_cooldown <= 0){
     //   ramp_cooldown = rndi(G.RAMP_COOLDOWN / 2, G.RAMP_COOLDOWN * 2);
@@ -228,8 +229,8 @@ function update() {
 
 
   // Drawing double sprites
-  player.pos = vec(input.pos.x, player.pos.y);
-  playerSprite.pos = vec(input.pos.x, player.pos.y + 2);
+  followCursor();
+
   player.pos.clamp(0, G.WIDTH, 0, G.HEIGHT);
   playerSprite.pos.clamp(0, G.WIDTH, 0, G.HEIGHT);
   color('black');
@@ -246,7 +247,7 @@ function update() {
   }
 
   function jumpAnimation(){
-    playerSprite.pos = vec(input.pos.x, player.pos.y + 6);
+    playerSprite.pos = vec(player.pos.x, player.pos.y + 6);
     console.log(tempTicks);
     tempTicks += 0.4;
     if(tempTicks > 10){
@@ -268,10 +269,18 @@ function update() {
       char("i", playerSprite.pos);
     }
   }
+  function followCursor(){
+    if (player.pos.x < input.pos.x && !player.inAir){
+      player.pos = vec(player.pos.x + 0.5, player.pos.y);
+      playerSprite.pos = vec(player.pos.x, player.pos.y + 2);
+    }else if(player.pos.x > input.pos.x && !player.inAir){
+      player.pos = vec(player.pos.x - 0.5, player.pos.y)
+      playerSprite.pos = vec(player.pos.x, player.pos.y + 2);;
+    }
+  }
 
   // if(char("a", player.pos).isColliding.rect.black)
   //   end("Try again!");
 
 
 }
-
