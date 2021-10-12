@@ -8,9 +8,9 @@ description = `
 characters = [
 // SKATEBOARD TOP
 `
-llrrll
 lrrrrl
- rLLr 
+lrrrrl
+ rrrr 
  rrrr 
  rrrr 
  rrrr
@@ -20,9 +20,9 @@ lrrrrl
  rrrr 
  rrrr 
  rrrr 
- rLLr 
+ rrrr 
 lrrrrl
-llrrll
+lrrrrl
 `,
 
 `
@@ -50,8 +50,18 @@ lrrrrl
  rrrr 
  rLLr 
 llrrll
-`
+`,
 
+`
+lrrl
+ rr
+ rr
+`,
+`
+ rr
+ rr
+lrrl
+`
 ];
 
 const G = {
@@ -163,7 +173,7 @@ function update() {
 
   if(input.isJustPressed) {
     player.inAir = true;
-    if (char("a", player.pos).isColliding.char.c) {
+    if (char("f", player.pos).isColliding.char.c) {
       addScore(10);
     }
   }
@@ -179,17 +189,18 @@ function update() {
 
   // Drawing double sprites
   player.pos = vec(input.pos.x, player.pos.y);
-  playerSprite.pos = vec(input.pos.x, player.pos.y + 6);
+  playerSprite.pos = vec(input.pos.x, player.pos.y + 2);
   player.pos.clamp(0, G.WIDTH, 0, G.HEIGHT);
   playerSprite.pos.clamp(0, G.WIDTH, 0, G.HEIGHT);
   color('black');
   if(!player.inAir) {
-    if(char("a", player.pos).isColliding.rect.black)
+    if(char("f", player.pos).isColliding.rect.black)
       end("Try again!");
-    char("b", playerSprite.pos);}
+    char("g", playerSprite.pos);}
   else {
-    char("d", vec(player.pos.x + 1, player.pos.y)); 
-    char("e", playerSprite.pos);
+    playerSprite.pos = vec(input.pos.x, player.pos.y + 6);
+    char("a", vec(player.pos.x, player.pos.y)); 
+    char("b", playerSprite.pos);
   }
 
   // if(char("a", player.pos).isColliding.rect.black)
@@ -197,4 +208,3 @@ function update() {
 
 
 }
-
