@@ -35,21 +35,21 @@ bbbbbb
 `,
 
 `
-
- llrll
- lrrrl
-  lrl
- lrrrl
- llrll
+      
+ll  ll
+llrrll
+lrrrrl
+ rLLr 
+ rrrr 
 `,
 
 `
-lllll
-lllll
-lllll
-lllll
-lllll
-lllll
+ rrrr 
+ rrrr 
+ rrrr
+ rrrr 
+ rLLr 
+llrrll
 `
 
 ];
@@ -121,9 +121,9 @@ function update() {
 
   player.cooldown --;
   Pit.cooldown --;
+  text("Pit: " + Pit.cooldown.toString(), 4, 30);
 
-  console.log(Pit.cooldown);
-  if(Ramps.length === 0)
+  if(Ramps.length == 0)
   {
     if(player.cooldown <= 0){
       for(var i = 0; i < rndi(3,7); i++)
@@ -163,6 +163,9 @@ function update() {
 
   if(input.isJustPressed) {
     player.inAir = true;
+    if (char("a", player.pos).isColliding.char.c) {
+      addScore(10);
+    }
   }
   if(player.inAir) {
     player.airTime--;
@@ -184,8 +187,10 @@ function update() {
     if(char("a", player.pos).isColliding.rect.black)
       end("Try again!");
     char("b", playerSprite.pos);}
-  else {(char("d", player.pos)); playerSprite.pos.y += 2; char("e", playerSprite.pos);}
-
+  else {
+    char("d", vec(player.pos.x + 1, player.pos.y)); 
+    char("e", playerSprite.pos);
+  }
 
   // if(char("a", player.pos).isColliding.rect.black)
   //   end("Try again!");
