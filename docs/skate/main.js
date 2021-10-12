@@ -35,21 +35,21 @@ bbbbbb
 `,
 
 `
-      
-ll  ll
-llrrll
-lrrrrl
- rLLr 
- rrrr 
+llyr
+llyr
+  yr
+  yr
+  yr
+  yr
 `,
 
 `
- rrrr 
- rrrr 
- rrrr
- rrrr 
- rLLr 
-llrrll
+  yr
+  yr
+  yr
+  yr
+llyr
+llyr
 `,
 
 `
@@ -61,6 +61,41 @@ lrrl
  rr
  rr
 lrrl
+`,
+
+`
+  ryll
+  ryll
+  ry
+  ry
+  ry
+  ry
+`,
+
+`
+  ry
+  ry
+  ry
+  ry
+  ryll
+  ryll
+`,
+`
+lyyyyl
+lyyyyl
+ yyyy 
+ yyyy 
+ yyyy 
+ yyyy
+`,
+
+`
+ yyyy 
+ yyyy 
+ yyyy 
+ yyyy 
+lyyyyl
+lyyyyl
 `
 ];
 
@@ -68,7 +103,7 @@ const G = {
   WIDTH: 100,
   HEIGHT: 100,
 
-  JUMP_HEIGHT: 4,
+  JUMP_HEIGHT: 6.2,
   SPEED: 1,
   RAMP_COOLDOWN: 200
 };
@@ -101,6 +136,10 @@ let Ramps;
 /** @type { Pit } */
 let Pit;
 
+let tempTicks;
+let rightSideUp;
+let upsideDown;
+
 function update() {
   if (!ticks) {
     player = {
@@ -126,9 +165,10 @@ function update() {
       size: rndi (5, 10),
       cooldown: 200
     }
-    
+    tempTicks = 0;
+    rightSideUp = false;
+    upsideDown = false;
   }
-
   player.cooldown --;
   Pit.cooldown --;
   text("Pit: " + Pit.cooldown.toString(), 4, 30);
@@ -196,11 +236,37 @@ function update() {
   if(!player.inAir) {
     if(char("f", player.pos).isColliding.rect.black)
       end("Try again!");
-    char("g", playerSprite.pos);}
+    char("g", playerSprite.pos);
+    rightSideUp = false;
+    upsideDown = false;
+    tempTicks = 0;
+  }
   else {
+    jumpAnimation();
+  }
+
+  function jumpAnimation(){
     playerSprite.pos = vec(input.pos.x, player.pos.y + 6);
-    char("a", vec(player.pos.x, player.pos.y)); 
-    char("b", playerSprite.pos);
+    console.log(tempTicks);
+    tempTicks += 0.4;
+    if(tempTicks > 10){
+      tempTicks = 0;
+      rightSideUp = !rightSideUp;
+      upsideDown = !upsideDown
+    }
+    else if (tempTicks < 5 && !upsideDown){
+      char("a", vec(player.pos.x, player.pos.y)); 
+      char("b", playerSprite.pos);
+    }else if(tempTicks < 5 && upsideDown){
+      char("j", vec(player.pos.x, player.pos.y)); 
+      char("k", playerSprite.pos);
+    }else if (tempTicks < 10 && !rightSideUp){
+      char("d", vec(player.pos.x, player.pos.y)); 
+      char("e", playerSprite.pos);
+    }else if (tempTicks < 10){
+      char("h", vec(player.pos.x, player.pos.y)); 
+      char("i", playerSprite.pos);
+    }
   }
 
   // if(char("a", player.pos).isColliding.rect.black)
@@ -208,3 +274,4 @@ function update() {
 
 
 }
+
