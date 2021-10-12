@@ -8,21 +8,21 @@ description = `
 characters = [
 // SKATEBOARD TOP
 `
+  rr
 lrrrrl
 lrrrrl
  rrrr 
  rrrr 
  rrrr 
- rrrr
 `,
 
 `
  rrrr 
  rrrr 
  rrrr 
- rrrr 
 lrrrrl
 lrrrrl
+  rr
 `,
 
 `
@@ -35,9 +35,9 @@ bbbbbb
 `,
 
 `
-llyr
-llyr
   yr
+llyr
+llyr
   yr
   yr
   yr
@@ -47,9 +47,9 @@ llyr
   yr
   yr
   yr
+llyr
+llyr
   yr
-llyr
-llyr
 `,
 
 `
@@ -64,9 +64,9 @@ lrrl
 `,
 
 `
-  ryll
-  ryll
   ry
+  ryll
+  ryll
   ry
   ry
   ry
@@ -76,26 +76,26 @@ lrrl
   ry
   ry
   ry
+  ryll
+  ryll
   ry
-  ryll
-  ryll
 `,
 `
+  yy
 lyyyyl
 lyyyyl
  yyyy 
  yyyy 
  yyyy 
- yyyy
 `,
 
 `
  yyyy 
  yyyy 
  yyyy 
- yyyy 
 lyyyyl
 lyyyyl
+  yy
 `
 ];
 
@@ -276,6 +276,9 @@ function update() {
     }else if(player.pos.x > input.pos.x && !player.inAir){
       player.pos = vec(player.pos.x - 0.5, player.pos.y)
       playerSprite.pos = vec(player.pos.x, player.pos.y + 2);;
+    }else{
+      player.pos = vec(player.pos.x, player.pos.y);
+      playerSprite.pos = vec(player.pos.x, player.pos.y + 2);
     }
   }
 
