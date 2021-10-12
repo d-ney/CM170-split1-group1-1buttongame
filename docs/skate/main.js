@@ -355,7 +355,7 @@ function update() {
       if (tempTicks < 10) {
         char("a", vec(player.pos.x, player.pos.y));
         char("b", playerSprite.pos);
-        score += 10 * multiplier;
+        score += 2 * multiplier; // SCORE IS LESS SINCE IT ISNT TRICK JUMP
         multiplier++;
         player.airTime--; // REGULAR JUMPS ARE VERY SHORT NOW
       }
