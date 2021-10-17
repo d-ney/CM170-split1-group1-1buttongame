@@ -168,25 +168,7 @@ function update() {
       pos: vec(player.pos.x, player.pos.y + 6)
     }
 
-    // Ramps = times(3, () => {
-    //   const posX = rnd(0, G.WIDTH);
-    //   const posY = 0;
-    //   return{
-    //     pos: vec(posX, posY)
-    //   }
-    // });
 
-    // holes = times(5, () => {
-    //   const posX = rnd(0, G.WIDTH);
-    //   const posY = 0;
-    //   const wid = rndi(5, 15);
-    //   const hei = rndi(10, 20);
-    //   return{
-    //     pos: vec(posX, posY),
-    //     width: wid,
-    //     height: hei
-    //   }
-    // });
     Ramps = [];
     holes = [];
 
@@ -205,7 +187,6 @@ function update() {
   }
   player.cooldown --;
   Pit.cooldown --;
-  //text("Pit: " + Pit.cooldown.toString(), 4, 30);
 
   if(Ramps.length == 0)
   {
@@ -292,7 +273,6 @@ function update() {
   player.pos.clamp(0, G.WIDTH, 0, G.HEIGHT);
   playerSprite.pos.clamp(0, G.WIDTH, 0, G.HEIGHT);
   color('black');
-  //console.log(player.airTime);
   if(!player.inAir) {
     if(char("f", player.pos).isColliding.rect.cyan || char("f", player.pos).isColliding.rect.black)
       end("Try again!");
@@ -311,7 +291,7 @@ function update() {
   }
   else {
     char("a", player.pos);
-    char("b", playerSprite.pos);
+    char("b", playerSprite.pos.x, playerSprite.pos.y + 4);
     text("x" + multiplier, 2, 30);
     multiplier = 1;
   }
@@ -367,10 +347,10 @@ function update() {
   }
 
   function followCursor(){
-    if (player.pos.x < input.pos.x && !player.inAir){
+    if (player.pos.x < input.pos.x -1 && !player.inAir){
       player.pos = vec(player.pos.x + 0.8, player.pos.y);
       playerSprite.pos = vec(player.pos.x, player.pos.y + 2);
-    }else if(player.pos.x > input.pos.x && !player.inAir){
+    }else if(player.pos.x > input.pos.x + 1 && !player.inAir){
       player.pos = vec(player.pos.x - 0.8, player.pos.y)
       playerSprite.pos = vec(player.pos.x, player.pos.y + 2);;
     }else{
@@ -378,9 +358,4 @@ function update() {
       playerSprite.pos = vec(player.pos.x, player.pos.y + 2);
     }
   }
-
-  // if(char("a", player.pos).isColliding.rect.black)
-  //   end("Try again!");
-
-
 }
